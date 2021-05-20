@@ -1,0 +1,15 @@
+{
+  "name": "tetris",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "serve": "npx vite preview"
+  },
+  "devDependencies": {
+    "vite": "^2.1.5"
+  },
+  "dependencies": {
+    "sass": "^1.32.13"
+  }
+}

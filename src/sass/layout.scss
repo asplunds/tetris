@@ -1,0 +1,16 @@
+body, html {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background: #111;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
