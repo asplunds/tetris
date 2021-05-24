@@ -26,7 +26,7 @@ Fork with credit!
 - Will not work on IE11
 
 ## Contributing
-Make a fork and submit a PR request. From there changes will be reviewed.
+Make a fork and submit a PR. From there changes will be reviewed.
 
 ## Credits
 Thanks to the [Tetris fandom wiki](https://tetris.fandom.com/wiki/Tetris_Wiki) for prodivind excellent articles on how Tetris works.
