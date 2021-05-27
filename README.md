@@ -21,7 +21,7 @@ Fork with credit!
 
 ## Browser support
 
-- Obiously won't work on touch devices
+- Fon't work on touch devices
 - Tested on Firefox, Chrome, Edge and Safari
 - Will not work on IE11
 
