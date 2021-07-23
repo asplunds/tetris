@@ -10,7 +10,7 @@ Simple zero dependancy Tetris game made in TypeScript/JavaScript using canvas 2d
 3. `npm i`
 4. `npm run dev`
 
-[Vite JS](https://vitejs.dev) will take care of hot module swapping, start hacking and see your changes live in [http://localhost:3000](http://localhost:3000)!
+[Vite JS](https://vitejs.dev) will take care of hot module replacement, start hacking and see your changes live in [http://localhost:3000](http://localhost:3000)!
 
 ## How to build
 
