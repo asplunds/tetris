@@ -1,16 +1,19 @@
 import { MatrixDimensions, Matrix } from "./types";
-import { noUnitesPlease } from "./utils";
+import { noUnitsPlease } from "./utils";
 
 export const drawGame = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, dimensions: MatrixDimensions) => {
+    // perhaps refactor to somewhere better?
     const borderSize = 1;
     const tileColor = "#444";
     const size = {
         width: canvas.getAttribute("width"),
         height: canvas.getAttribute("height")
     };
+
+    
     const rows = dimensions.height;
-    const canvasWidth = parseFloat(noUnitesPlease(size.width));
-    const canvasHeight = parseFloat(noUnitesPlease(size.height));
+    const canvasWidth = parseFloat(noUnitsPlease(size.width));
+    const canvasHeight = parseFloat(noUnitsPlease(size.height));
     const columns = dimensions.width;
     const totalWidth = (canvasWidth - borderSize * (columns - 1));
     const totalHeight = (canvasHeight - borderSize * (rows - 1));
@@ -37,7 +40,6 @@ export const drawGame = (canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2
                         }
                         if (instance.flashSequence < 0) {
                             ctx.fillStyle = "#fff";
-
                         }
                         else {
                             ctx.fillStyle = instance.color;

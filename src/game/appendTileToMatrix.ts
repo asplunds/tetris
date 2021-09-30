@@ -3,7 +3,6 @@ import evaluateGhost from "./evaluateGhost";
 import { Matrix, MatrixDimensions } from "./types";
 
 export default function appendTileToMatrix (dimensions: MatrixDimensions) {
-    const rows = dimensions.height;
     const columns = dimensions.width;
     const renderGhost = evaluateGhost(dimensions);
 

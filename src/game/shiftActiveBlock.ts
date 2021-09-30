@@ -2,14 +2,15 @@ import appendTileToMatrix from "./appendTileToMatrix";
 import { Block } from "./blocks";
 import { createEmptyTile } from "./createEmptyTile";
 import evaluateGhost from "./evaluateGhost";
+import evaluateLineClear from "./evaluateLineClear";
 import { Matrix, MatrixDimensions, Tile } from "./types";
 
 export default function shiftActive (dimensions: MatrixDimensions, getBlock: () => typeof Block) {
     const rows = dimensions.height;
-    const columns = dimensions.width;
     const renderGhost = evaluateGhost(dimensions);
     const append = appendTileToMatrix(dimensions);
-
+    const checkLineClear = evaluateLineClear(dimensions);
+    
     return (matrix: Matrix, offsetX: number, offsetY: number): Matrix => {
         const tileCoordinates: [number, number, Tile][] = [];
         const search = matrix.flat().find(v => v.instance);
@@ -27,6 +28,7 @@ export default function shiftActive (dimensions: MatrixDimensions, getBlock: () 
                             color: instance.color,
                             occupied: true
                         }
+                        checkLineClear(matrix);
                     }
                 }
             }

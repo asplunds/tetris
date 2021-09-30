@@ -17,8 +17,8 @@ const ctx = canvas.getContext("2d");
 export const debug = false;
 
 const matrixDimensions: MatrixDimensions = {
-    height: 20,
-    width: 10
+    height: 50,
+    width: 6
 }
 
 !(function game(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, matrixDimensions: MatrixDimensions) {

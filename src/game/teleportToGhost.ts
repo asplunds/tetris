@@ -5,7 +5,6 @@ import { Matrix, MatrixDimensions, Tile } from "./types";
 
 export const teleportToGhost = (dimensions: MatrixDimensions) => {
     const rows = dimensions.height;
-    const columns = dimensions.width;
     const renderGhost = evaluateGhost(dimensions);
 
     return (matrix: Matrix): Matrix => {
@@ -15,7 +14,7 @@ export const teleportToGhost = (dimensions: MatrixDimensions) => {
         const tileCoordinates: [number, number, Tile][] = [];
         const ghostCoordinates: [number, number, Tile][] = [];
 
-        /* render grid */
+        // calculate where ghost should land
         y: for (let y = 0; y < rows; y++) {
             for (const [x, tile] of matrix[y].entries()) {
                 if (tile.instance) {
@@ -30,6 +29,7 @@ export const teleportToGhost = (dimensions: MatrixDimensions) => {
             }
         }
 
+        // perform the teleportation
         for (const [i, [x, y]] of tileCoordinates.entries()) {
             const [ghostX, ghostY] = ghostCoordinates[i];
             matrix[ghostY][ghostX] = {
@@ -40,10 +40,9 @@ export const teleportToGhost = (dimensions: MatrixDimensions) => {
             };
         }
         // clear ghost?
-        for (const [x, y, instanceTile] of tileCoordinates) {
+        for (const [x, y, instanceTile] of tileCoordinates)
             if (!matrix[y][x].occupied)
                 matrix[y][x] = createEmptyTile(instanceTile.index, x, y);
-        }
 
         return matrix;
     }

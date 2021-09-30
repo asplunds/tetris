@@ -1,6 +1,10 @@
 
-
-export const noUnitesPlease = (style: string) => {
+/**
+ * Removes units because why not
+ * @param style 
+ * @returns 
+ */
+export const noUnitsPlease = (style: string) => {
     return style.replace(/px|em|rem|ch|%/, "");
 }
 
@@ -22,6 +26,14 @@ export const getMatrixArea = <T>(matrix: T[][], sx: number, sy: number, ex: numb
 
 }
 
+/**
+ * Generates a zig-zag of an array with a bias towards the right,
+ * this prioritizes which distance is closest.
+ * The chainsaw algorithm will create longer absolute zigs and zags as start goes towards n
+ * @param n distance
+ * @param start starting point
+ * @returns zig zagging graph of an array
+ */
 export const chainSaw = (n: number, start = 0) => {
     return Array(n).fill(0).map((_, i) => {
         return [start - i, start + i];

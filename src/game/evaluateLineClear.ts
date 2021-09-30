@@ -1,18 +1,24 @@
 import { createEmptyTile } from "./createEmptyTile";
 import { Matrix, MatrixDimensions } from "./types";
 
+/**
+ * Very expensive line clear algorithm, feel free to optimize :)
+ * @param dimensions 
+ * @returns 
+ */
 export default function evaluateLineClear (dimensions: MatrixDimensions) {
     const rows = dimensions.height;
-    const columns = dimensions.width;
 
     return (matrix: Matrix): Matrix => {
 
-
+        // checks for line clears, bottom to top
         for (let y = rows - 1; y >= 0; y--) {
+            // Checks whether every tile on row y is occupied
             const isFull = matrix[y].every(tile => {
                 return tile.occupied;
             });
 
+            // if it's full we have to shift down every tile above it
             if (isFull) {
                 const toClear = [];
 
@@ -40,12 +46,6 @@ export default function evaluateLineClear (dimensions: MatrixDimensions) {
                 y++;
             }
         }
-
-        /* for (const [x, y] of toClear) {
-            const tile = matrix[y][x];
-
-            if (tile.occupied)
-        } */
 
         return matrix;
     }
